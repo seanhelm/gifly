@@ -1,6 +1,6 @@
 from video2gif.convert import *
 from video2gif.clips import *
-
+import json
 
 if __name__ == '__main__':
     size = 0.3

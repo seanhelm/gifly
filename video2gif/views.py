@@ -1,23 +1,22 @@
-from flask import Flask, json, request
+from flask import Flask, json, request, jsonify
 from video2gif import app
-from video2gif.convert import convert_video
+from video2gif.convert import  *
+from video2gif.clips import *
 
 
 @app.route('/convert', methods=['POST'])
-def convert_video():
+def convert():
     json_data = request.get_json()
 
+    times = [[tuple(time[0]), tuple(time[1])] for time in json_data['times']]
+
     path = json_data['path']
-    times = json_data['times']
     gif_prefix = json_data['gif_prefix']
     size = json_data['size']
     fps = json_data['fps']
 
-    clips = Clips(video_name, times, gif_prefix, size, fps)
+    clips = Clips(path, times, gif_prefix, size, fps)
 
-    #try:
-    #    convert_video(clips)
-    #except:
-    #    return False
+    gif_files = convert_video(clips)
 
-    return json_data
+    return jsonify(gif_files)

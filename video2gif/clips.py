@@ -10,4 +10,4 @@ class Clips():
         return len(times)
 
     def __str__():
-        return path + '> ' + gif_prefix + '[1-' + count_clips() + '].gif'
+        return path + ' to ' + gif_prefix + '[1-' + count_clips() + '].gif'
