@@ -6,13 +6,14 @@ if __name__ == '__main__':
     size = 0.3
     fps = 20
     gif_prefix = 'clips/clip'
-    video_name = 'slow.mp4'
+    video_name = 'video.mp4'
 
+    # Format: (Minute, Seconds.Milliseconds)
     times = [
-    [(0, 7.00), (0, 9.00)],
-    [(0, 2.00), (0, 4.00)],
-    [(3, 16.00), (3, 18.00)],
-    [(9, 0.00), (9, 02.00)]
+    [(0, 0.00), (0, 0.00)],
+    [(0, 0.00), (0, 0.00)],
+    [(0, 0.00), (0, 0.00)],
+    [(0, 0.00), (0, 0.00)]
     ]
 
     clips = Clips(video_name, times, gif_prefix, size, fps)

@@ -5,7 +5,7 @@ from video2gif.convert import convert_video
 
 @app.route('/convert', methods=['POST'])
 def convert_video():
-    json_data = request.get_json(silent=True)
+    json_data = request.get_json()
 
     path = json_data['path']
     times = json_data['times']
@@ -15,9 +15,9 @@ def convert_video():
 
     clips = Clips(video_name, times, gif_prefix, size, fps)
 
-    try:
-        convert_video(clips)
-    except:
-        return False
+    #try:
+    #    convert_video(clips)
+    #except:
+    #    return False
 
-    return True
+    return json_data

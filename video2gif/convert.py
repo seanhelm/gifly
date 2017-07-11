@@ -8,6 +8,7 @@ from moviepy.video.fx.all import *
 
 
 def convert_video(clips):
+    '''Convert a video to multiple gifs of specific clips'''
     video = VideoFileClip(clips.path).resize(clips.size)
 
     for i in range(0, len(clips.times)):
