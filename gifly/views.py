@@ -20,23 +20,3 @@ def convert():
     gif_files = convert_video(clips)
 
     return jsonify(gif_files)
-
-@app.route('/list', methods=['GET'])
-def list():
-    obj = {'list': [
-            {
-                'name': 'Sean',
-                'age': 17
-            },
-            {
-                'name': 'Max',
-                'age': 25
-            },
-            {
-                'name': 'Samantha',
-                'age': 12
-            }
-        ]
-    }
-
-    return jsonify(obj)
