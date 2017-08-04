@@ -3,17 +3,16 @@ from video2gif.clips import *
 import json
 
 if __name__ == '__main__':
-    size = 0.3
+    size = 0.2
     fps = 20
-    gif_prefix = 'clips/clip'
-    video_name = 'video.mp4'
+    gif_prefix = 'clips/ultra'
+    video_name = 'ultra.mp4'
 
     # Format: (Minute, Seconds.Milliseconds)
     times = [
-    [(0, 0.00), (0, 0.00)],
-    [(0, 0.00), (0, 0.00)],
-    [(0, 0.00), (0, 0.00)],
-    [(0, 0.00), (0, 0.00)]
+    [(8, 6.00), (8, 9.00)],
+    [(10, 55.00), (10, 58.00)],
+    [(8, 52.00), (8, 55.00)],
     ]
 
     clips = Clips(video_name, times, gif_prefix, size, fps)

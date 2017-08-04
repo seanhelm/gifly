@@ -1,3 +1,3 @@
-from video2gif import app
+from gifly import app
 
 app.run(debug=True)
