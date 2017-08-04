@@ -1,0 +1,42 @@
+from flask import Flask, json, request, jsonify
+from . import app
+from .convert import  *
+from .clips import *
+
+
+@app.route('/convert', methods=['POST'])
+def convert():
+    json_data = request.get_json()
+
+    times = [[tuple(time[0]), tuple(time[1])] for time in json_data['times']]
+
+    path = json_data['path']
+    gif_prefix = json_data['gif_prefix']
+    size = json_data['size']
+    fps = json_data['fps']
+
+    clips = Clips(path, times, gif_prefix, size, fps)
+
+    gif_files = convert_video(clips)
+
+    return jsonify(gif_files)
+
+@app.route('/list', methods=['GET'])
+def list():
+    obj = {'list': [
+            {
+                'name': 'Sean',
+                'age': 17
+            },
+            {
+                'name': 'Max',
+                'age': 25
+            },
+            {
+                'name': 'Samantha',
+                'age': 12
+            }
+        ]
+    }
+
+    return jsonify(obj)
